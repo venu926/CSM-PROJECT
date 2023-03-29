@@ -8,9 +8,6 @@ c={}
 for i in range(255):
     d[chr(i)]=i
     c[i]=chr(i)
-  
-  
-#print(c)
 
 x=cv2.imread("images.png")
 
@@ -23,9 +20,9 @@ text=input("Enter text to hide : ")
 
 kl=0
 tln=len(text)
-z=0 #decides plane
-n=0 #number of row
-m=0 #number of column
+z=0
+n=0 
+m=0 
 
 l=len(text)
 
@@ -33,21 +30,20 @@ for i in range(l):
     x[n,m,z]=d[text[i]]^d[key[kl]]
     n=n+1
     m=m+1
-    m=(m+1)%3 #this is for every value of z , remainder will be between 0,1,2 . i.e G,R,B plane will be set automatically.
-                #whatever be the value of z , z=(z+1)%3 will always between 0,1,2 . The same concept is used for random number in dice and card games.
+    m=(m+1)%3 
     kl=(kl+1)%len(key)
     
 cv2.imwrite("encrypted_img.png",x) 
 os.startfile("encrypted_img.png")
 print("Data Hiding in Image completed successfully.")
-#x=cv2.imread(“encrypted_img.jpg")
+
     
 
 kl=0
 tln=len(text)
-z=0 #decides plane
-n=0 #number of row
-m=0 #number of column
+z=0 
+n=0 
+m=0 
 
 ch = int(input("\nEnter 1 to extract data from Image : "))
 
